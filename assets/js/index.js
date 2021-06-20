@@ -3,9 +3,13 @@ var effects = ['fx1.mp3', 'fx2.mp3'];
 var player = document.createElement('audio');
 var playerEffect = document.createElement('audio');
 var isFullscreen = false;
+var images = ['sippy', 'cheerios'];
 
 function init() {
-	
+	document.addEventListener('contextmenu', event => event.preventDefault());	
+	for (var i in images) {
+  		set_handlers("spot_" + i);
+	}
 }
 
 function getRand(max) {
@@ -18,8 +22,8 @@ function playSound(soundId) {
 	    elem.requestFullscreen();
 	    isFullscreen = true;
 	}
-	var imgUrl = document.getElementById('image'+soundId).src;
-	var imageName = imgUrl.split('/').pop().split('.')[0];
+	var soundId = parseInt(this.id.split('_')[1]);
+	var imageName = images[soundId];
 	console.log(imageName);
 	playAudio(imageName+'.m4a');
 }
@@ -40,3 +44,15 @@ function playEffect() {
 	playerEffect.preload = 'auto';
 	playerEffect.play();
 }
+
+function set_handlers(name) {
+	// Install event handlers for the given element
+	var el=document.getElementById(name);
+	el.ontouchstart = playSound;
+	el.onclick = playSound;
+	// el.ontouchmove = playSound;
+	// el.ontouchcancel = playSound;
+	// el.ontouchend = playSound;
+}
+
+init();
