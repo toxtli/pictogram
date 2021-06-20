@@ -49,7 +49,7 @@ function set_handlers(name) {
 	// Install event handlers for the given element
 	var el=document.getElementById(name);
 	el.ontouchstart = playSound;
-	el.onclick = playSound;
+	// el.onclick = playSound;
 	// el.ontouchmove = playSound;
 	// el.ontouchcancel = playSound;
 	// el.ontouchend = playSound;
