@@ -16,12 +16,15 @@ function getRand(max) {
   return Math.floor(Math.random() * max);
 }
 
-function playSound(soundId) {
+function onFullscreen {
 	if (!isFullscreen) {
 		var elem = document.documentElement;
 	    elem.requestFullscreen();
 	    isFullscreen = true;
 	}
+}
+
+function playSound(soundId) {
 	var soundId = parseInt(this.id.split('_')[1]);
 	var imageName = images[soundId];
 	console.log(imageName);
@@ -49,7 +52,7 @@ function set_handlers(name) {
 	// Install event handlers for the given element
 	var el=document.getElementById(name);
 	el.ontouchstart = playSound;
-	// el.onclick = playSound;
+	el.onclick = onFullscreen;
 	// el.ontouchmove = playSound;
 	// el.ontouchcancel = playSound;
 	// el.ontouchend = playSound;
