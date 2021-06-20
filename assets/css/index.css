@@ -21,11 +21,11 @@ html, body {
 }
 
 #spot_0 {
-	background-image: url(/assets/img/sippy.png);
+	background-image: url(../img/sippy.png);
 }
 
 #spot_1 {
-	background-image: url(/assets/img/cheerios.png);		
+	background-image: url(../img/cheerios.png);		
 }
 
 .spot {
