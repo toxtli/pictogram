@@ -16,7 +16,7 @@ function getRand(max) {
   return Math.floor(Math.random() * max);
 }
 
-function onFullscreen {
+function onFullscreen() {
 	if (!isFullscreen) {
 		var elem = document.documentElement;
 	    elem.requestFullscreen();
@@ -52,10 +52,21 @@ function set_handlers(name) {
 	// Install event handlers for the given element
 	var el=document.getElementById(name);
 	el.ontouchstart = playSound;
-	el.onclick = onFullscreen;
+	// el.onclick = onFullscreen;
 	// el.ontouchmove = playSound;
 	// el.ontouchcancel = playSound;
 	// el.ontouchend = playSound;
 }
 
+function start() {
+	onFullscreen();
+	document.getElementById('setup').style.display = 'none';
+	document.getElementById('content').style.display = 'block';
+}
+
+$(".selectable").on("click", function (e) {
+    $(this).toggleClass('selected');
+});
+
 init();
+
