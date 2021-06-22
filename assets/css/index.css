@@ -57,26 +57,55 @@ html, body {
 
 .spot {
 	display: inline-block;
-	/*background-size: cover;*/
-    background-repeat: no-repeat;
-  	background-position: center;
+  background-repeat: no-repeat;
+	background-position: center;
 	background-size: cover;
-}
-
-@media (orientation: landscape) {
-  .spot {
-    width: 49%;
-    height: 99%;
-  }
-}
-
-@media (orientation: portrait) {
-  .spot {
-    width: 99%;
-    height: 49%;
-  }
 }
 
 .thumbnail {
 	height: 100px;
+}
+
+@media (orientation: landscape) {
+  .one.spot {
+    width: 99%;
+    height: 99%;
+  }
+
+  .two.spot {
+    width: 49%;
+    height: 99%;
+  }
+
+  .four.spot {
+    width: 49%;
+    height: 49%;
+  }
+
+  .six.spot {
+    width: 33%;
+    height: 49%;
+  }
+}
+
+@media (orientation: portrait) {
+  .one.spot {
+    width: 99%;
+    height: 99%;
+  }
+
+  .two.spot {
+    width: 99%;
+    height: 49%;
+  }
+
+  .four.spot {
+    width: 49%;
+    height: 49%;
+  }
+
+  .six.spot {
+    width: 49%;
+    height: 33%;
+  }
 }

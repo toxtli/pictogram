@@ -32,3 +32,11 @@ var data = [
 		"audio": "https://www.carlostoxtli.com/pictogram/assets/sounds/pink.m4a"
 	}
 ];
+
+var effects = [
+	"https://www.carlostoxtli.com/pictogram/assets/sounds/fx1.mp3", 
+	"https://www.carlostoxtli.com/pictogram/assets/sounds/fx2.mp3", 
+	"https://www.carlostoxtli.com/pictogram/assets/sounds/fx3.mp3", 
+	"https://www.carlostoxtli.com/pictogram/assets/sounds/fx4.mp3", 
+	"https://www.carlostoxtli.com/pictogram/assets/sounds/fx5.mp3"
+];

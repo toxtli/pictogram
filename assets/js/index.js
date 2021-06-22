@@ -1,10 +1,9 @@
-var audioPath = 'assets/sounds/';
-var effects = ['fx1.mp3', 'fx2.mp3'];
 var player = document.createElement('audio');
 var playerEffect = document.createElement('audio');
 var isFullscreen = false;
 var plusUrl = "https://www.carlostoxtli.com/pictogram/assets/img/plus.png";
 var selected = [0, 1];
+var maxSelection = 6;
 
 function init() {
 	document.addEventListener('contextmenu', event => event.preventDefault());	
@@ -51,27 +50,27 @@ function playAudio(audioFile) {
 function playEffect() {
 	playerEffect.pause();
 	playerEffect.currentTime = 0;
-	playerEffect.src = audioPath + effects[getRand(effects.length)];
+	playerEffect.src = effects[getRand(effects.length)];
 	playerEffect.preload = 'auto';
 	playerEffect.play();
 }
 
 function set_handlers(name) {
-	// Install event handlers for the given element
-	console.log(name);
 	var el=document.getElementById(name);
-	el.ontouchstart = playSound;
-	el.onclick = playSound;
-	// el.ontouchmove = playSound;
-	// el.ontouchcancel = playSound;
-	// el.ontouchend = playSound;
+	if ('ontouchstart' in document.documentElement) {
+  	el.ontouchstart = playSound;
+	} else {
+		el.onclick = playSound;
+	}
 }
 
 function start() {
-	onFullscreen();
-	document.getElementById('setup').style.display = 'none';
-	document.getElementById('content').style.display = 'block';
-	loadLayout();
+	if (selected.length > 0) {
+		onFullscreen();
+		document.getElementById('setup').style.display = 'none';
+		document.getElementById('content').style.display = 'block';
+		loadLayout();
+	}
 }
 
 function loadImages() {
@@ -87,8 +86,17 @@ function loadImages() {
 
 function loadLayout() {
 	var content = '';
+	var className = '';
+	switch(selected.length) {
+		case 1: className = 'one'; break;
+		case 2: className = 'two'; break;
+		case 3: 
+		case 4: className = 'four'; break;
+		case 5: 
+		case 6: className = 'six'; break;
+	}
 	for (var i of selected) {
-		content += `<div class="spot" id="spot_${i}" style="background-image:url(${data[i]['image']})"></div>`
+		content += `<div class="spot ${className}" id="spot_${i}" style="background-image:url(${data[i]['image']})"></div>`
 	}
 	$('#content').html(content);
 	for (var i of selected) {
@@ -97,6 +105,7 @@ function loadLayout() {
 }
 
 $(document).on('click' , '.selectable', function (e) {
+	if ((selected.length < maxSelection) || $(this).hasClass('selected')) {
     $(this).toggleClass('selected');
     var index = parseInt(this.id.split('_')[1]);
     if ($(this).hasClass('selected')) {
@@ -105,6 +114,7 @@ $(document).on('click' , '.selectable', function (e) {
     	deleteSelected(index);
     }
     console.log(selected);
+	}
 });
 
 init();
