@@ -13,11 +13,13 @@ var data = [
 	},
 	{
 		"image": "https://www.carlostoxtli.com/pictogram/assets/img/green.png",
-		"audio": "https://www.carlostoxtli.com/pictogram/assets/sounds/green.m4a"
+		"audio": "https://www.carlostoxtli.com/pictogram/assets/sounds/green.m4a",
+		"video": "https://www.carlostoxtli.com/pictogram/assets/videos/green.mp4"
 	},
 	{
 		"image": "https://www.carlostoxtli.com/pictogram/assets/img/blue.png",
-		"audio": "https://www.carlostoxtli.com/pictogram/assets/sounds/blue.m4a"
+		"audio": "https://www.carlostoxtli.com/pictogram/assets/sounds/blue.m4a",
+		"video": "https://www.carlostoxtli.com/pictogram/assets/videos/blue.mp4"
 	},
 	{
 		"image": "https://www.carlostoxtli.com/pictogram/assets/img/yellow.png",

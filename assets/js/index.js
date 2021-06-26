@@ -1,5 +1,6 @@
 var player = document.createElement('audio');
 var playerEffect = document.createElement('audio');
+var videoPlayer = null;
 var isFullscreen = false;
 var plusUrl = "https://www.carlostoxtli.com/pictogram/assets/img/plus.png";
 var selected = [0, 1];
@@ -35,7 +36,27 @@ function onFullscreen() {
 
 function playSound(soundId) {
 	var soundId = parseInt(this.id.split('_')[1]);
-	playAudio(data[soundId]['audio']);
+	
+	if (data[soundId].hasOwnProperty('video')) {
+		playVideo(data[soundId]['video']);
+	} else {
+		playAudio(data[soundId]['audio']);
+	}
+}
+
+function afterVideo() {
+	$('#videoSource').hide();
+	playEffect();
+}
+
+function playVideo(videoFile) {
+	$('#videoSource').show();
+	videoPlayer.pause();
+	videoPlayer.currentTime = 0;
+	videoPlayer.src = videoFile;
+	videoPlayer.preload = 'auto';
+	videoPlayer.play();
+	videoPlayer.onended = afterVideo;
 }
 
 function playAudio(audioFile) {
@@ -70,6 +91,8 @@ function start() {
 		document.getElementById('setup').style.display = 'none';
 		document.getElementById('content').style.display = 'block';
 		loadLayout();
+		videoPlayer = document.getElementById('videoSource');
+		$('#videoSource').hide();
 	}
 }
 
@@ -98,7 +121,7 @@ function loadLayout() {
 	for (var i of selected) {
 		content += `<div class="spot ${className}" id="spot_${i}" style="background-image:url(${data[i]['image']})"></div>`
 	}
-	$('#content').html(content);
+	$('#spotContainer').html(content);
 	for (var i of selected) {
   		set_handlers("spot_" + i);
 	}
