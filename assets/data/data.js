@@ -1,11 +1,13 @@
 var data = [
 	{
 		"image": "https://www.carlostoxtli.com/pictogram/assets/img/sippy.png",
-		"audio": "https://www.carlostoxtli.com/pictogram/assets/sounds/sippy.m4a"
+		"audio": "https://www.carlostoxtli.com/pictogram/assets/sounds/sippy.m4a",
+		"video": "https://www.carlostoxtli.com/pictogram/assets/videos/sippy.mp4"
 	},
 	{
 		"image": "https://www.carlostoxtli.com/pictogram/assets/img/cheerios.png",
-		"audio": "https://www.carlostoxtli.com/pictogram/assets/sounds/cheerios.m4a"
+		"audio": "https://www.carlostoxtli.com/pictogram/assets/sounds/cheerios.m4a",
+		"video": "https://www.carlostoxtli.com/pictogram/assets/videos/cheerios.mp4"
 	},
 	{
 		"image": "https://www.carlostoxtli.com/pictogram/assets/img/red.png",
