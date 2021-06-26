@@ -38,9 +38,9 @@ function playSound(soundId) {
 	var soundId = parseInt(this.id.split('_')[1]);
 	
 	if (data[soundId].hasOwnProperty('video')) {
-		playVideo(data[soundId]['video']);
+		playVideo(data[soundId]['video'][getRand(data[soundId]['video'].length)]);
 	} else {
-		playAudio(data[soundId]['audio']);
+		playVideo(data[soundId]['audio'][getRand(data[soundId]['audio'].length)]);
 	}
 }
 

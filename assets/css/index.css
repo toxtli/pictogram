@@ -44,7 +44,6 @@ html, body {
   z-index:  10;
   top: 33%;
   left: 33%;
-  height: 33%;
 }
 
 #controls {
@@ -94,6 +93,11 @@ html, body {
     width: 33%;
     height: 49%;
   }
+
+  #videoSource {
+    height: 33%;
+    width: auto;
+  }
 }
 
 @media (orientation: portrait) {
@@ -115,5 +119,10 @@ html, body {
   .six.spot {
     width: 49%;
     height: 33%;
+  }
+
+  #videoSource {
+    height: auto;
+    width: 33%;
   }
 }
